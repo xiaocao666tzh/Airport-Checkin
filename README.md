@@ -1,6 +1,7 @@
 # 机场自动签到
 做这个项目主要是看到最近冒出来许多机场注册就能白嫖，签到就送流量。然后又顺便拿这个项目学习一下Github Actions。
 ## 功能
+2022/4/13 更新：支持多用户
 废话，肯定就是机场自动签到啊。
 ## 部署
 1. Fork此仓库
@@ -8,9 +9,9 @@
 
 | 参数  | 是否必须  | 内容  | 示例  |
 | ------------ | ------------ | ------------ | ------------ |
-| EMAIL  | 是  | 注册机场所用邮箱  | example@example.com  |
-| PASSWORD  | 是  | 注册机场所用密码  | password  |
-| BASE_URL  | 是  | 机场地址  | https://example.com  |
+| EMAIL  | 是  | 注册机场所用邮箱  | ['a@example.com','b@example.com']  |
+| PASSWORD  | 是  | 注册机场所用密码  | ['password1','password2']  |
+| BASE_URL  | 是  | 机场地址  | ['https://examplea.com','https://exampleb.com']  |
 | SCKEY  | 否  | Sever酱秘钥  | SCTxxxxxxxxxxxxxx  |
 
 3. 转到`Actions`创建一个workflow，运行一次，以后每天项目都会自动运行。最后，可以到Run sign查看签到情况，同时也会通过Sever酱发送出去。
