@@ -40,5 +40,7 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
           BASE_URL: ${{ secrets.BASE_URL }}
+          TGBOT: ${{ secrets.TGBOT }}
+          TGUSERID: ${{ secrets.TGUSERID }}
         run: |
           python3 ./main.py
