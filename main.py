@@ -1,12 +1,15 @@
 import requests
 import json
 import os
+
 requests.packages.urllib3.disable_warnings()
-SCKEY = os.environ['SCKEY']
-TG_BOT_TOKEN = os.environ['TGBOT']
-TG_USER_ID = os.environ['TGUSERID']
-def checkin(email=os.environ['EMAIL'], password=os.environ['PASSWORD'],
-            base_url=os.environ['BASE_URL'],):
+SCKEY = os.environ.get('SCKEY')
+TG_BOT_TOKEN = os.environ.get('TGBOT')
+TG_USER_ID = os.environ.get('TGUSERID')
+
+
+def checkin(email=os.environ.get('EMAIL'), password=os.environ.get('PASSWORD'),
+            base_url=os.environ.get('BASE_URL'), ):
     email = email.split('@')
     email = email[0] + '%40' + email[1]
     session = requests.session()
@@ -32,6 +35,7 @@ def checkin(email=os.environ['EMAIL'], password=os.environ['PASSWORD'],
     response = json.loads(response.text)
     print(response['msg'])
     return response['msg']
+
 
 result = checkin()
 if SCKEY != '':
