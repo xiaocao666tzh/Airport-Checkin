@@ -3,8 +3,8 @@ import json
 import os
 requests.packages.urllib3.disable_warnings()
 SCKEY = os.environ['SCKEY']
-TG_BOT_TOKEN = os.environ['TG_BOT_TOKEN']
-TG_USER_ID = os.environ['TG_USER_ID']
+TG_BOT_TOKEN = os.environ['TGBOT']
+TG_USER_ID = os.environ['TGUSERID']
 def checkin(email=os.environ['EMAIL'], password=os.environ['PASSWORD'],
             base_url=os.environ['BASE_URL'],):
     email = email.split('@')
