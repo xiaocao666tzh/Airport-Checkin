@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+#  schedule:
+#    - cron: "* * * * * 7 "
+
+jobs:
+  autogreen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Auto Commit
+        run: |
+          git config --local user.email "xcaocommitbot@outlook.com"
+          git config --local user.name "xcaocommitbot"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}/notreadthis
+          git pull --rebase
+          git commit --allow-empty -m "Just a commit"
+          git push
